@@ -1,0 +1,14 @@
+/.gradle/
+/gradle/wrapper
+*.idea/
+/Configuration/
+/Data/
+/*/build/
+/*/*.iml
+/*/Configuration/
+/*/data/
+/*/Data/
+/*/tmp/
+/core/src/main/resources/generated/
+/node_modules
+/tmp/

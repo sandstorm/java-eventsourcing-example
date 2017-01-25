@@ -1,0 +1,5 @@
+rootProject.name = 'java-eventsourcing-example'
+
+include 'server'
+include 'server-dependencies'
+include 'server-development-mode'

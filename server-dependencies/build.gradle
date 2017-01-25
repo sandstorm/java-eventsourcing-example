@@ -1,0 +1,5 @@
+apply from: "${rootProject.projectDir}/gradle/groovy.gradle"
+
+dependencies {
+    compile 'org.axonframework:axon-core:3.0'
+}

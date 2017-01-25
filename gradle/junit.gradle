@@ -1,0 +1,15 @@
+/**
+ * all sub-project must use the same version
+ */
+dependencies {
+	testCompile 'junit:junit:4.12'
+}
+test {
+	testLogging {
+		// we want to see the test results in all cases, not just in failure cases.
+		events "passed", "skipped", "failed"
+		// furthermore, we want to see all things which are "println"ed from the tests as well.
+		showStandardStreams = true
+	}
+}
+

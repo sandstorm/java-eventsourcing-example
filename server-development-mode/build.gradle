@@ -1,0 +1,16 @@
+apply plugin: 'application'
+mainClassName = "de.sandstormmedia.groovyrunner.Main"
+
+startScripts {
+    defaultJvmOpts << "-XX:MaxPermSize=512m"
+    defaultJvmOpts << "-Dsandstormmedia.groovyrunner.source=server"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile project(':server-dependencies')
+    compile "de.sandstormmedia.groovy-development-cli:groovy-runner:1.0.0"
+}

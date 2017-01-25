@@ -1,0 +1,65 @@
+/************************************************************
+ * ENTRY POINTS
+ *
+ * These tasks are often executed while development.
+ ************************************************************/
+
+task prepareDevelopmentEnvironment(dependsOn: [':server-development-mode:installApp']) {
+	description 'Compile the server-development-mode helpers'
+}
+
+/************************************************************
+ * ALL-PROJECT CONFIGURATION
+ ************************************************************/
+// This configuration section applies to ALL gradle projects, i.e. THIS ONE and the subprojects "groovyrunner".
+subprojects {
+	repositories {
+		maven {
+			url "https://dl.bintray.com/sandstorm/maven"
+		}
+		mavenCentral()
+		jcenter()
+	}
+}
+
+/************************************************************
+ * HELPERS
+ ************************************************************/
+
+/**
+ * Helper to clean all ignored files
+ */
+task cleanIgnoredFiles {
+	description 'Remove all .gitignore`d files'
+}
+cleanIgnoredFiles << {
+	'git clean -dX --force'.execute().consumeProcessOutput(System.out, System.err)
+	println 'All files which have are inside .gitignore have been removed.'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.2'
+}
+/**
+ * This is a configuration for IntelliJ to exclude some folders from the project.
+ *
+ * see http://www.gradle.org/docs/current/dsl/org.gradle.plugins.ide.idea.model.IdeaModule.html
+ */
+apply plugin: 'idea'
+idea {
+	module {
+		excludeDirs = [
+			'.gradle',
+			'gradle',
+			'build',
+			'Data',
+			'data',
+			'logs',
+			'packaging',
+			'node_modules',
+			'plugins',
+			'testData',
+			'jira.plugin'
+		].collect { file(it) }
+	}
+}

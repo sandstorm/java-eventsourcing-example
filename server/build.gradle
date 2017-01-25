@@ -1,0 +1,14 @@
+apply from: "${rootProject.projectDir}/gradle/groovy.gradle"
+
+apply plugin: 'application'
+mainClassName = "de.sandstorm.eventsourcingtest.Main"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // external dependencies are in meta-package to enable hot reloading during development
+    compile project(':server-dependencies')
+}
+

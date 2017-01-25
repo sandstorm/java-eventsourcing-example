@@ -1,0 +1,8 @@
+apply plugin: 'groovy'
+apply from: "${rootProject.projectDir}/gradle/junit.gradle"
+
+dependencies {
+	compile 'org.codehaus.groovy:groovy-all:2.4.5'
+}
+
+
