@@ -1,0 +1,1 @@
+server-development-mode/build/install/server-development-mode/bin/server-development-mode

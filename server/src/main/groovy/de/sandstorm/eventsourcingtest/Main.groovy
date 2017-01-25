@@ -14,17 +14,12 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        def mainApplication = new ServerMain()
-        mainApplication.startApplication()
+        def mainApplication = new Main()
+        mainApplication.run()
     }
 
-    /**
-     * Executes {@link ServerMain#run(boolean, boolean)} with the given command line arguments.
-     *
-     * @param arguments command line arguments
-     */
-    public void run(String... arguments) {
-
+    public void run() {
+        println "Hallo"
     }
 
 }

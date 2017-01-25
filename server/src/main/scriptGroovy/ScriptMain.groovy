@@ -1,4 +1,5 @@
 import de.sandstormmedia.groovyrunner.ApplicationDescriptor
+import de.sandstorm.eventsourcingtest.Main
 
 /**
  * Bootstrap for fusion.
@@ -16,7 +17,9 @@ class ScriptMain extends ApplicationDescriptor {
     }
 
     void runStartCommand() {
-
+        println "HAHA"
+        def main = new Main()
+        main.run()
     }
 
     void runStopCommand() {

@@ -12,3 +12,5 @@
 /core/src/main/resources/generated/
 /node_modules
 /tmp/
+*.ipr
+*.iws
