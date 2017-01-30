@@ -17,11 +17,18 @@ class ScriptMain extends ApplicationDescriptor {
     }
 
     void runStartCommand() {
-        println "HAHA"
         def main = new Main()
         main.run()
     }
 
     void runStopCommand() {
+    }
+
+    void runSecondStartCommand() {
+        def main = new Main()
+        main.runSecond()
+    }
+
+    void runSecondStopCommand() {
     }
 }

@@ -1,4 +1,4 @@
-package de.sandstorm.eventsourcingtest
+package de.sandstorm.eventsourcingtest.internal
 
 import org.axonframework.eventsourcing.eventstore.jdbc.EventSchema
 import org.axonframework.eventsourcing.eventstore.jdbc.MySqlEventTableFactory

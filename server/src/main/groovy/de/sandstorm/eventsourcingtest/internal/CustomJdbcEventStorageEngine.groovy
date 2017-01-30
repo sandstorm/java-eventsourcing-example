@@ -1,4 +1,4 @@
-package de.sandstorm.eventsourcingtest
+package de.sandstorm.eventsourcingtest.internal
 
 import groovy.transform.InheritConstructors
 import org.axonframework.common.jdbc.ConnectionProvider

@@ -1,4 +1,4 @@
-package de.sandstorm.eventsourcingtest.dnsIpAddress.projection
+package de.sandstorm.eventsourcingtest.dnsIpAddress.projection.table
 
 import de.sandstorm.eventsourcingtest.dnsIpAddress.event.IpHostMappingWasReadFromDns
 import org.axonframework.eventhandling.EventHandler
