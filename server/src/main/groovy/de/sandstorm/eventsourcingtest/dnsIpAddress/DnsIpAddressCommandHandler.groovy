@@ -1,6 +1,8 @@
 package de.sandstorm.eventsourcingtest.dnsIpAddress
 
 import de.sandstorm.eventsourcingtest.dnsIpAddress.event.IpHostMappingWasReadFromDns
+import de.sandstorm.eventsourcingtest.internal.EventBusProvider
+import de.sandstormmedia.dependencyinjection.Inject
 import org.axonframework.eventhandling.EventBus
 import org.axonframework.eventhandling.GenericEventMessage
 
@@ -9,10 +11,11 @@ import org.axonframework.eventhandling.GenericEventMessage
  */
 class DnsIpAddressCommandHandler {
 
-    EventBus eventBus
+    @Inject
+    EventBusProvider eventBusProvider
 
     public void ipHostMappingWasReadFromDns(String ip, String hostname) {
-        eventBus.publish(GenericEventMessage.asEventMessage(new IpHostMappingWasReadFromDns(
+        eventBusProvider.eventBus.publish(GenericEventMessage.asEventMessage(new IpHostMappingWasReadFromDns(
                 ip: ip,
                 hostname: hostname
         )))

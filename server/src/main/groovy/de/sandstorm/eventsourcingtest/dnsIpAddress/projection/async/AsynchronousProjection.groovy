@@ -8,8 +8,11 @@ import org.axonframework.eventhandling.EventHandler
  */
 class AsynchronousProjection {
 
+    int counter
+
     @EventHandler
     public void handleIpHostMappingWasReadFromDns(IpHostMappingWasReadFromDns event) {
-        println "TODO: asynchronous projection"
+        counter++
+        println "TODO: asynchronous projection $counter"
     }
 }
