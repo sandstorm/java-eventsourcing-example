@@ -8,7 +8,7 @@ import de.sandstorm.eventsourcingtest.dnsIpAddress.projection.table.TableProject
 import de.sandstorm.eventsourcingtest.internal.CustomJdbcEventStorageEngine
 import de.sandstorm.eventsourcingtest.internal.CustomMySqlEventTableFactory
 import de.sandstorm.eventsourcingtest.internal.EventBusProvider
-import de.sandstorm.eventsourcingtest.internal.ProjectionTableFactory
+import de.sandstorm.eventsourcingtest.internal.TestProjectionTable
 import de.sandstormmedia.dependencyinjection.Inject
 import groovy.util.logging.Slf4j
 import org.axonframework.common.jdbc.DataSourceConnectionProvider
@@ -41,13 +41,19 @@ public class Main {
     }
 
     @Inject DataSourceProvider dataSourceProvider
-    @Inject ProjectionTableFactory projectionTableFactory
+    @Inject TestProjectionTable projectionTableFactory
     @Inject EventBusProvider eventBusProvider
 
     public void run() {
         initializeAxom()
         initializeProjectionTables()
 
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("127.0.0.1", "localhost")
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.11", "sandstorm.de")
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.15", "sandstorm.de")
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("127.0.0.1", "localhost")
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.11", "sandstorm.de")
+        new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.15", "sandstorm.de")
         new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("127.0.0.1", "localhost")
         new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.11", "sandstorm.de")
         new DnsIpAddressCommandHandler().ipHostMappingWasReadFromDns("11.12.11.15", "sandstorm.de")

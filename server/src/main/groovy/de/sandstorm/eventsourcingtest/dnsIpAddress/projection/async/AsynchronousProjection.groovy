@@ -1,18 +1,17 @@
 package de.sandstorm.eventsourcingtest.dnsIpAddress.projection.async
 
 import de.sandstorm.eventsourcingtest.dnsIpAddress.event.IpHostMappingWasReadFromDns
+import de.sandstorm.eventsourcingtest.internal.TestProjectionTable
+import de.sandstormmedia.dependencyinjection.Inject
 import org.axonframework.eventhandling.EventHandler
 
-/**
- * Created by sebastian on 25.01.17.
- */
 class AsynchronousProjection {
 
-    int counter
+    @Inject TestProjectionTable testProjectionTable
 
     @EventHandler
     public void handleIpHostMappingWasReadFromDns(IpHostMappingWasReadFromDns event) {
-        counter++
-        println "TODO: asynchronous projection $counter"
+        // in this projection we count the IP changes
+        testProjectionTable.updateProjectionTable(event.ip)
     }
 }

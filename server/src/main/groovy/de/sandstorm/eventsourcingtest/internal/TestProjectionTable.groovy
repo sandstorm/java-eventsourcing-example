@@ -2,13 +2,10 @@ package de.sandstorm.eventsourcingtest.internal
 
 import de.sandstormmedia.dependencyinjection.Inject
 import de.sandstormmedia.dependencyinjection.ScopeSingleton
+import groovy.sql.Sql
 
 @ScopeSingleton
-class ProjectionTableFactory {
-
-    static final String projectionTableName = "test_projection"
-    static final String ipAddressColumn = "ip_address"
-    static final String counterColumn = "counter"
+class TestProjectionTable {
 
     @Inject DataSourceProvider dataSourceProvider
 
@@ -21,6 +18,16 @@ class ProjectionTableFactory {
                     PRIMARY KEY (ip_address)
                 );
             '''
+        }
+    }
+
+    public void updateProjectionTable(String ipAddress) {
+        println "update projection table"
+        dataSourceProvider.withSql { Sql sql ->
+            sql.execute '''
+                INSERT INTO test_projection (ip_address, counter) VALUES (?, 1)
+                ON DUPLICATE KEY UPDATE counter = counter + 1;
+            ''', [ipAddress]
         }
     }
 
