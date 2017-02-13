@@ -35,4 +35,18 @@ class DataSourceProvider {
 
         return new HikariDataSource(config);
     }
+
+    public static void clearDatabase() {
+        def dbTables = [
+            "DomainEventEntry",
+            "SnapshotEventEntry",
+            "TokenEntry",
+            "test_projection"
+        ]
+        new DataSourceProvider().withSql { Sql sql ->
+            dbTables.each {
+                sql.execute('truncate table ' + it + ';')
+            }
+        }
+    }
 }

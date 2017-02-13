@@ -1,3 +1,4 @@
+import de.sandstorm.eventsourcingtest.internal.DataSourceProvider
 import de.sandstormmedia.groovyrunner.ApplicationDescriptor
 import de.sandstorm.eventsourcingtest.Main
 
@@ -30,5 +31,13 @@ class ScriptMain extends ApplicationDescriptor {
     }
 
     void runSecondStopCommand() {
+    }
+
+    void clearDatabaseStartCommand() {
+        DataSourceProvider.clearDatabase()
+    }
+
+    void clearDatabaseStopCommand() {
+
     }
 }
