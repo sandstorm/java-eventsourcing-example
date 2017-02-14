@@ -9,6 +9,8 @@ import de.sandstorm.eventsourcingtest.Main
  */
 class ScriptMain extends ApplicationDescriptor {
 
+    def main = new Main()
+
     void help() {
         println "COMMAND REFERENCE"
         println "================="
@@ -18,8 +20,15 @@ class ScriptMain extends ApplicationDescriptor {
     }
 
     void runStartCommand() {
-        def main = new Main()
         main.run()
+    }
+
+    void dnsIpStartCommand() {
+        main.dnsIpRequest()
+    }
+
+    void userPaymentAcceptedStartCommand() {
+        main.userPaymentAccpeted()
     }
 
     void runStopCommand() {
